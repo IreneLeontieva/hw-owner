@@ -1,9 +1,8 @@
 import com.codeborne.selenide.Condition;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Condition.have;
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.step;
 
 public class WebTest extends TestBase {
@@ -21,6 +20,5 @@ public class WebTest extends TestBase {
             $(".index-top-title").shouldHave(Condition.text("Все, что мы нашли в Лабиринте\n" +
                     "            по запросу «Война и мир»"));
         });
-
     }
 }
