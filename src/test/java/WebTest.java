@@ -1,3 +1,4 @@
+import com.codeborne.selenide.Condition;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.have;
@@ -10,13 +11,15 @@ public class WebTest extends TestBase {
     @Test
     public void webTest() {
         step("Открываем главную страницу", () -> {
-            open("https://github.com");
+            open("https://www.labirint.ru/");
         });
 
-        step("Вводим поисковый запрос", () -> {
-            $("[data-test-selector='nav-search-input']").setValue("hw-owner").pressEnter();
-            $$("ul.repo-list").first().shouldNot(have(text("IreneLeontieva")));
-            sleep(1000);
+        step("Search book", () -> {
+            $("input[placeholder='Поиск по Лабиринту']").setValue("Война и мир").pressEnter();
+        });
+        step("Check that book is found", () -> {
+            $(".index-top-title").shouldHave(Condition.text("Все, что мы нашли в Лабиринте\n" +
+                    "            по запросу «Война и мир»"));
         });
 
     }
