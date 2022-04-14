@@ -18,12 +18,6 @@ public interface WebDriverConfig extends Config {
     @Key("remoteUrl")
     String remoteUrl();
 
-    @Key("videoStorage")
-    String videoStorage();
-
-    @Key("timeoutVideoAttach")
-    int timeoutVideoAttach();
-
     @Key("timeout")
     int timeout();
 }
